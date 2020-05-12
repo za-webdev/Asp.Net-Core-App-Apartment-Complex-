@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Vehicle>
+
+@{
+    ViewData["Title"] = "About";
+}
+@*<h3>@ViewData["Message"]</h3>*@
+
+@*<p>Use this area to provide additional information.</p>*@
+
+<h2>All Vehicles</h2>
+    <table border="1">
+       <tr>
+           <td>
+               ID
+           </td>
+           <td>
+               Model
+           </td>
+           <td>
+               Make
+           </td>
+           <td>
+               Action
+           </td>
+       </tr>
+            @foreach (var v in Model)
+            {
+        <tr>
+            <td>
+                @v.VehicleId
+
+            </td>
+
+
+            <td>
+                @v.Model
+            </td>
+
+
+            <td>
+                @v.Make
+            </td>
+            <td>
+                <a href="/Vehicle/VehicleInfo/@v.VehicleId">View</a>
+                <a href="@Url.Action("VehicleInfo","Vehicle",new {vid= v.VehicleId })" class="btn-default">Show</a>
+                <a asp-controller="vehicle" asp-action="VehicleInfo" asp-route-vid="@v.VehicleId" class="btn btn-primary"> Details</a>
+            </td>
+        </tr>
+            }
+
+    </table>
+
+@*<a href="/VehicleInfo/@Model.Vehicle.VehicleId">View</a>*@

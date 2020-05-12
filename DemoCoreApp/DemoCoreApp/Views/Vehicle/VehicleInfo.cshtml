@@ -1,0 +1,50 @@
+﻿
+@model DemoCoreApp.ViewModels.OwnerVehicleViewModel
+@using Microsoft.AspNetCore.Http;
+
+<h1>Vehicle Info</h1>
+@*@{
+        var vehicle = ViewData["Vehicle"] as DemoCoreApp.Models.Vehicle;
+    }
+
+    <div>
+        Model: @vehicle.Model
+    </div>
+    <div>
+        Make: @vehicle.Make
+    </div>
+    <div>
+        Registration Number = @ViewBag.RegistrationNumber
+    </div>*@
+<div>
+    Model: @Model.Vehicle.Model
+</div>
+<div>
+    Make: @Model.Vehicle.Make
+</div>
+<div>
+    Registration Number: @Model.Vehicle.RegistrationNumber
+</div>
+
+@if (Context.Session.GetInt32("ownerId") != null && Context.Session.GetInt32("ownerId") == Model.Vehicle.VehicleOwnerId)
+{
+
+    <div>
+        <a asp-controller="vehicle" asp-action="Edit" asp-route-Id="@Model.Vehicle.VehicleId" class="btn btn-primary"> Edit</a>
+    </div>
+}
+
+<h1>Owner Info</h1>
+
+<div>
+    Model: @Model.Owner.FirstName
+</div>
+<div>
+    Make: @Model.Owner.LastName
+</div>
+<div>
+    Apartment Number: @Model.Owner.ApartmentNumber
+</div>
+<div>
+    <a asp-controller="vehicle" asp-action="VehicleInfo" asp-route-object="@Model.Owner" class="btn btn-primary"> Details</a>
+</div>

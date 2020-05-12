@@ -1,0 +1,32 @@
+﻿@model DemoCoreApp.ViewModels.VehicleViewModel
+@{ 
+    var showRegNum = (bool)ViewData["ShowRegNum"];
+}
+
+@*<div asp-validation-summary="All" class="text-danger"></div>*@
+<div class="form-group">
+    <label asp-for="Model">Vehicel Model:</label>
+    <input asp-for="Model" class="form-control" />
+    <span asp-validation-for="Model" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Make">Vehicle Make:</label>
+    <input asp-for="Make" class="form-control" />
+    <span asp-validation-for="Make" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Color">Vehicle Color :</label>
+    <input asp-for="Color" class="form-control" />
+    <span asp-validation-for="Color" class="text-danger"></span>
+</div>
+@if (showRegNum){
+
+<div class="form-group">
+    <label asp-for="RegistrationNumber">Vehicle Registration Number :</label>
+    <input asp-for="RegistrationNumber" class="form-control" />
+    <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+</div>
+
+}
+<input hidden asp-for="VehicleId" />
+<input hidden asp-for="VehicleOwnerId" />

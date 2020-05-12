@@ -1,0 +1,25 @@
+﻿@model DemoCoreApp.ViewModels.VehicleViewModel
+@{
+    ViewData["Title"] = "EditVehicle";
+    ViewData["ShowRegNum"] = true;
+
+}
+
+<h2>Edit Vehicle Info</h2>
+<div class="row">
+<div class="col-md-12">
+    <form method="post" action="Edit">
+        <partial name="_VehicleFormPartialView" model="Model" view-data="ViewData" />
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a asp-controller="Home" asp-action="" class="btn btn-primary">Cancle</a>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+</div>
+
+
