@@ -8,7 +8,7 @@ namespace DemoCoreApp.Models
 {
     public class Vehicle
     {
-        public int VehicleId { get; set; }
+        public int? VehicleId { get; set; }
         [Required(ErrorMessage = "*")]
         public string Color { get; set; }
         [Required]
@@ -18,6 +18,6 @@ namespace DemoCoreApp.Models
         [Required]
         public string RegistrationNumber { get; set; }
         public DateTime RegistrationDate { get; set; }
-        public int VehicleOwnerId { get; set; }
+        public int? VehicleOwnerId { get; set; }
     }
 }

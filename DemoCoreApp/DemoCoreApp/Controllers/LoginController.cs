@@ -38,7 +38,7 @@ namespace DemoCoreApp.Controllers
                 viewModel.OwnerId = _appService.Login(viewModel.Email, viewModel.Password);
                 if (viewModel.OwnerId >0)
                 {
-                    HttpContext.Session.SetInt32("ownerId", viewModel.OwnerId);
+                    HttpContext.Session.SetInt32("ownerId", viewModel.OwnerId.Value);
                     return RedirectToAction("","Home");
                 }
                 else

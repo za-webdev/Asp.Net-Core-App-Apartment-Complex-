@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DemoCoreApp.Models;
 using DemoCoreApp.Services;
 using DemoCoreApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,7 @@ namespace DemoCoreApp.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("Register")]
         public ViewResult Register()
         {
@@ -62,8 +64,8 @@ namespace DemoCoreApp.Controllers
                     Color = viewModel.Color,
                     RegistrationNumber = viewModel.RegistrationNumber
                 };
-                _appService.UpsertVehicleInfo(vehicle, vehicle.VehicleOwnerId);
-                return View("../Vehicle/VehicleInfo", viewModel);
+                _appService.UpsertVehicleInfo(vehicle, vehicle.VehicleOwnerId.Value);
+                return View("../Vehicle/VehicleInfo", vehicle);
             }
             else
             {
@@ -72,6 +74,7 @@ namespace DemoCoreApp.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("RegisterVehicle")]
         public IActionResult RegisterVehicle(VehicleViewModel viewModel)
         {

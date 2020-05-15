@@ -8,7 +8,7 @@ namespace DemoCoreApp.ViewModels
 {
     public class VehicleViewModel
     {
-        public int VehicleId { get; set; }
+        public int? VehicleId { get; set; }
         [Required(ErrorMessage = "*")]
         public string Color { get; set; }
         [Required]
@@ -18,7 +18,7 @@ namespace DemoCoreApp.ViewModels
         [Required]
         public string RegistrationNumber { get; set; }
         public DateTime RegistrationDate { get; set; }
-        public int VehicleOwnerId { get; set; }
+        public int? VehicleOwnerId { get; set; }
         public List<string> SuccessMessages { get; set; }
     }
 }

@@ -81,7 +81,7 @@
     </div>
 </div>
 <div class="display">
-    <div>
+    @*<div>
         <p>Please enter the following information in order to register a vehicle.</p>
         <form asp-controller="Home" asp-action="ValidateOwner"method="post">
         <div>
@@ -93,12 +93,12 @@
             <label asp-for="Owner.ApartmentNumber">Apartment Number</label>
             <input asp-for="Owner.ApartmentNumber" />
         </div>
-            <div>
-                <button type="submit">Register</button>
-            </div>
         </form>
         
-    </div>
+    </div>*@
+            <div>
+                <a asp-controller="vehicle" asp-action="Register" class="btn btn-primary"> Register your vehicle</a>
+            </div>
     <div style="margin-left:30%;">
         <p>Search a vehicle by registration number.</p>
         <form asp-controller="Home" asp-action="FindVehicle" method="post">

@@ -65,30 +65,6 @@ namespace DemoCoreApp.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[Route("Login")]
-        //public IActionResult UserLogin(Owner owner)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //       var isValid = _ownerVehicleRepo.Login(owner.Email, owner.Password);
-        //        if (isValid)
-        //        {
-        //            HttpContext.Session.SetInt32("ownerId", owner.Id);
-        //            ViewBag.IsValid = "Login Successful";
-        //        }
-        //        else
-        //        {
-        //            ViewBag.IsValid = "Eamil or password is incorrect";
-        //        }
-        //        return RedirectToAction("", "Home");
-        //    }
-        //    else
-        //    {
-        //        return View("../Home/Login");
-        //    }
-            
-        //}
 
         [HttpGet]
         [Route("CreateAccount")]
@@ -106,18 +82,18 @@ namespace DemoCoreApp.Controllers
            return RedirectToAction("");
         }
 
-        [HttpPost]
-        [Route("ValidateOwner")]
-        public RedirectToActionResult ValidateOwner(Owner owner)
-        {
-            if (!string.IsNullOrWhiteSpace(owner.Email) && !string.IsNullOrWhiteSpace(owner.ApartmentNumber))
-            {
-                owner.Id = _appService.ValidateOwnerInfo(owner.Email, owner.ApartmentNumber);
-            }
+        //[HttpPost]
+        //[Route("ValidateOwner")]
+        //public RedirectToActionResult ValidateOwner(Owner owner)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(owner.Email) && !string.IsNullOrWhiteSpace(owner.ApartmentNumber))
+        //    {
+        //        owner.Id = _appService.ValidateOwnerInfo(owner.Email, owner.ApartmentNumber);
+        //    }
 
-           HttpContext.Session.SetInt32("ownerId", owner.Id);
-            return RedirectToAction("Register","Vehicle");
-        }
+        //   HttpContext.Session.SetInt32("ownerId", owner.Id.Value);
+        //    return RedirectToAction("Register","Vehicle");
+        //}
 
         [HttpPost]
         [Route("FindVehicle")]

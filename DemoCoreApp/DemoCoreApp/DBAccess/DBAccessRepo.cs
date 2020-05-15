@@ -31,7 +31,7 @@ namespace DemoCoreApp.DBAccess
                 cmd.Parameters.Add("@Model", SqlDbType.NVarChar).Value = vehicle.Model;
                 cmd.Parameters.Add("@Make", SqlDbType.NVarChar).Value = vehicle.Make;
                 cmd.Parameters.Add("@RegistrationNumber", SqlDbType.NVarChar).Value = vehicle.RegistrationNumber;
-                cmd.Parameters.Add("@VehicleID ", SqlDbType.Int).Value = vehicle.VehicleId;
+                cmd.Parameters.Add("@VehicleID ", SqlDbType.Int).Value = (vehicle.VehicleId != null)? vehicle.VehicleId : 0;
                 connection.Open();
                 cmd.ExecuteReader();
                 connection.Close();
